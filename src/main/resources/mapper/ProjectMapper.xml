@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsl.mapper.ProjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.lsl.entity.Project">
+            <id property="projectId" column="project_id" jdbcType="INTEGER"/>
+            <result property="projectName" column="project_name" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="teamId" column="team_id" jdbcType="INTEGER"/>
+            <result property="creatorId" column="creator_id" jdbcType="OTHER"/>
+            <result property="creatTime" column="creat_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        project_id,project_name,description,
+        team_id,creator_id,creat_time,
+        end_time
+    </sql>
+</mapper>

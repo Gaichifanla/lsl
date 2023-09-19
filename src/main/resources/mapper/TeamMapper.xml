@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsl.mapper.TeamMapper">
+
+    <resultMap id="BaseResultMap" type="com.lsl.entity.Team">
+            <id property="teamId" column="team_id" jdbcType="INTEGER"/>
+            <result property="teamName" column="team_name" jdbcType="VARCHAR"/>
+            <result property="creatorId" column="creator_id" jdbcType="INTEGER"/>
+            <result property="creatTime" column="creat_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        team_id,team_name,creator_id,
+        creat_time
+    </sql>
+</mapper>

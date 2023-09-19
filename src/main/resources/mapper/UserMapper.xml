@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsl.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.lsl.entity.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="openid" column="openid" jdbcType="BIGINT"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="VARCHAR"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="creattime" column="creat_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,openid,username,
+        password,sex,avatar,
+        email,phone,creat_time
+    </sql>
+    <select id="pageQuery" resultType="com.lsl.entity.User">
+        select * from user
+        <where>
+               <if test="name != null and name != ''">
+                   and name like concat('%',#{name},'%')
+               </if>
+        </where>
+        order by creat_time desc
+    </select>
+</mapper>
