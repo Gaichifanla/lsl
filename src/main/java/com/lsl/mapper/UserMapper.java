@@ -30,5 +30,10 @@ public interface UserMapper {
             keyProperty = "openid", before = true, resultType = Long.class)
     @Transactional
     void addUser(User user);
+    @Update("update user set username=#{username},password=#{password},sex=#{sex},avatar=#{avatar},email=#{email},phone=#{phone}")
+    void updateUser(User user);
+    @Delete("delete from user where openid=#{openid}")
+    void deleteByUserId(Long openid);
+
 
 }
