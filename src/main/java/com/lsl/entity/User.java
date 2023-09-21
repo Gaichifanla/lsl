@@ -47,4 +47,5 @@ public class User implements Serializable {
     //注册时间
 //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime creattime;
+    private int status;
 }

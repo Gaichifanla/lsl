@@ -4,10 +4,7 @@ import com.lsl.entity.User;
 import com.lsl.mapper.UserMapper;
 import com.lsl.result.Result;
 import com.lsl.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -42,5 +39,15 @@ public class UserController {
     @PostMapping("/addUser")
     public void addUser(User user){
         userMapper.addUser(user);
+    }
+    @PostMapping("/userLogin")
+    public Result userLogin(User user){
+        //待完善，使用jwt校验
+        return userService.userLogin(user);
+    }
+    @DeleteMapping("/deleteUser")
+    public Result deleteUser(long openid){
+        userService.deleteUserById(openid);
+        return Result.success("删除成功");
     }
 }

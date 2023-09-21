@@ -1,0 +1,10 @@
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secretKey: n-sss-bbb-a #JWT加解密使用的密钥【私钥】
+  # 设置jwt签名加密时使用的秘钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: 'Bearer '  #JWT负载中拿到开头
+  # 设置前端传递过来的令牌名称
+  token-name: token
+
+

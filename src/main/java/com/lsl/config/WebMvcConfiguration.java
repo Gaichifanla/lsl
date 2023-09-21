@@ -1,5 +1,6 @@
 package com.lsl.config;
 
+import com.lsl.interceptor.JwtTokenInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,20 +23,20 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @Slf4j
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
-//    @Autowired
-//    private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
-//
-//    /**
-//     * 注册自定义拦截器
-//     *
-//     * @param registry
-//     */
-//    protected void addInterceptors(InterceptorRegistry registry) {
-//        log.info("开始注册自定义拦截器...");
-//        registry.addInterceptor(jwtTokenAdminInterceptor)
-//                .addPathPatterns("/admin/**")
-//                .excludePathPatterns("/admin/employee/login");
-//    }
+    @Autowired
+    private JwtTokenInterceptor jwtTokenInterceptor;
+
+    /**
+     * 注册自定义拦截器
+     *
+     * @param registry
+     */
+    protected void addInterceptors(InterceptorRegistry registry) {
+        log.info("开始注册自定义拦截器...");
+        registry.addInterceptor(jwtTokenInterceptor)
+                .addPathPatterns("/user/**")//请求路径以"/user/"开头的请求会经过这个拦截器处理
+                .excludePathPatterns("/user/userLogin");//不应该被拦截器拦截的请求路径
+    }
 
     /**
      * 通过knife4j生成接口文档
