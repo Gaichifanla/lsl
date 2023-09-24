@@ -21,24 +21,24 @@ public class UserController {
     UserService userService;
     @GetMapping
     public Result getAllUser(){
-        List<User> user=userMapper.getAllUser();
+        List<User> user=userService.getAllUser();
         log.info("查询全部用户");
         System.out.println(user);
         return Result.success(user);
     }
     @GetMapping("/getOneByName")//路径不能相同
     public Result getOneByName(String username){
-        User user=userMapper.getOneByName(username);
+        User user=userService.getOneByName(username);
         return Result.success(user);
     }
     @PostMapping("/getOneByOpenid")
     public Result getOneByOpenid(int id){
-        User user=userMapper.getOneByOpenid(id);
+        User user=userService.getOneByOpenid(id);
         return Result.success(user);
     }
     @PostMapping("/addUser")
     public void addUser(User user){
-        userMapper.addUser(user);
+        userService.addUser(user);
     }
     @PostMapping("/userLogin")
     public Result userLogin(User user){
