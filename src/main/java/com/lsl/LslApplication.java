@@ -1,14 +1,13 @@
 package com.lsl;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import springfox.documentation.swagger2.annotations.EnableSwagger2WebFlux;
-import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+@SpringBootApplication//(scanBasePackages = "com.lsl.controller")
+@MapperScan("com.lsl.mapper")
 public class LslApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(LslApplication.class, args);
 	}

@@ -36,7 +36,7 @@ class UserControllerTest {
     @Test
     void addUser(){
         User user=new User(null,null,"aaa","bbb","女","null","luoyu_1224@163.com","00000000000",null,1);
-        userController.addUser(user);
+        userController.register(user);
     }
     @Test
     void deleteUser(){

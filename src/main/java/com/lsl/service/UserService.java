@@ -3,6 +3,7 @@ package com.lsl.service;
 import com.lsl.entity.User;
 import com.lsl.result.Result;
 import com.lsl.vo.UserLoginVo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
