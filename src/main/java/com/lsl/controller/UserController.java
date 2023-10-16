@@ -1,5 +1,6 @@
 package com.lsl.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lsl.entity.User;
 import com.lsl.mapper.UserMapper;
 import com.lsl.result.Result;
@@ -7,7 +8,9 @@ import com.lsl.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -37,15 +40,22 @@ public class UserController {
         return Result.success(user);
     }
     @PostMapping("/getOneByOpenid")
-    public Result getOneByOpenid(int id){
+    public Result getOneByOpenid(@RequestBody HashMap<String,String> requestBody){
         log.info("调用getOneByOpenid函数");
-        User user=userService.getOneByOpenid(id);
+        String openid=requestBody.get("openid");
+        User user=userService.getOneByOpenid(openid);
         return Result.success(user);
     }
     @PostMapping("/register")
-    public void register(User user){
+    public JSONObject register(@RequestBody HashMap<String,String> requestBody){
         log.info("调用register函数");
-        userService.addUser(user);
+//        System.out.println(requestBody);
+        String code=requestBody.get("code");
+        String avatarUrl=requestBody.get("avatarUrl");
+        String nickName=requestBody.get("nickName");
+//        System.out.println(code);
+
+        return userService.regist(code,avatarUrl,nickName);
     }
     @PostMapping("/userLogin")
     public Result userLogin(User user){

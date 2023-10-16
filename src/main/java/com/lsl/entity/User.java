@@ -23,7 +23,7 @@ public class User implements Serializable {
     private Long id;
 
     //微信用户唯一标识
-    private Long openid;
+    private Long account;
 
     //姓名
     private String username;
@@ -48,4 +48,5 @@ public class User implements Serializable {
 //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime creattime;
     private int status;
+    private String openid;
 }

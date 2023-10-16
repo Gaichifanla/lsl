@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserLoginVo {
     @ApiModelProperty("主键值")
-    private Long openid;
+    private Long account;
 
     @ApiModelProperty("用户名")
     private String username;
