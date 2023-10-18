@@ -19,6 +19,6 @@ public interface TeamMapper {
     @Insert("insert into team (team_id,team_name,creator_id,cteat_time)" +
             "values "+"(#{teamid},#{teamname},#{creatorid},#{creattime})")
     void addTeam(Team team);
-    /*@Update("")
-    void*/
+    @Update("update team set teamid=#{team_id},teamname=#{team_name},creatorid=#{creator_id},creattime=#{creat_time}")
+    void updata(Team team);
 }
