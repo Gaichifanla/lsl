@@ -34,7 +34,7 @@ public interface UserMapper {
             keyProperty = "account", before = true, resultType = Long.class)
     @Transactional
     void addUser(User user);
-    @Update("update user set username=#{username},password=#{password},sex=#{sex},avatar=#{avatar},email=#{email},phone=#{phone}")
+    @Update("update user set username=#{username},password=#{password},sex=#{sex},avatar=#{avatar},email=#{email},phone=#{phone} where openid=#{openid}")
     void updateUser(User user);
     @Delete("delete from user where openid=#{openid}")
     void deleteUserById(Long openid);

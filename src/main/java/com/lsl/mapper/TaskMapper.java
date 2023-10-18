@@ -1,9 +1,7 @@
 package com.lsl.mapper;
 
 import com.lsl.entity.Task;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -35,6 +33,12 @@ public interface TaskMapper {
             "values"+
             "(#{taskname},#{description},#{state},#{priority},#{projectid},#{leaderid},#{creatorid},#{creattime},#{endtime})")
     void insertAll(Task task);
+
+    @Update("update task set task_name=#{taskname},description=#{description},state=#{state},priority=#{priority} where task_id=#{taskid}}")
+    void updateTask(Task task);
+    @Delete("delete from task where task_id=#{taskid}")
+    void delete(int taskid);
+
 
 
 }
