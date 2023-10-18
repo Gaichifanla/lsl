@@ -31,13 +31,13 @@ public interface TaskMapper {
 
     @Insert("insert into task (task_name,description,state,priority,project_id,leader_id,creater_id,creat_time,end_time)" +
             "values"+
-            "(#{taskname},#{description},#{state},#{priority},#{projectid},#{leaderid},#{creatorid},#{creattime},#{endtime})")
-    void insertAll(Task task);
+            "(#{taskname},#{description},#{state},#{priority},#{projectid},#{leaderid},#{creatorid},current_timestamp,#{endtime})")
+    void insertTask(Task task);
 
     @Update("update task set task_name=#{taskname},description=#{description},state=#{state},priority=#{priority} where task_id=#{taskid}}")
     void updateTask(Task task);
     @Delete("delete from task where task_id=#{taskid}")
-    void delete(int taskid);
+    void deleteTask(int taskid);
 
 
 
