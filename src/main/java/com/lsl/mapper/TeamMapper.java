@@ -1,10 +1,7 @@
 package com.lsl.mapper;
 
 import com.lsl.entity.Team;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,4 +18,6 @@ public interface TeamMapper {
     void addTeam(Team team);
     @Update("update team set teamid=#{team_id},teamname=#{team_name},creatorid=#{creator_id},creattime=#{creat_time}")
     void updata(Team team);
+    @Delete("delete from team where team_id=#{teamid}")
+    void deleteTeam(int teamid);
 }
