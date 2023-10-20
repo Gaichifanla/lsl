@@ -2,6 +2,8 @@ package com.lsl.mapper;
 
 import com.lsl.entity.Task;
 import com.lsl.entity.Tasklog;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -20,6 +22,15 @@ public interface TasklogMapper {
 
     @Select("select * from tasklog where operator_id=#{operatorid}")
     Tasklog getTaskByOperatorId(int operatorid);
+
+    @Insert("insert into tasklog (task_id,operator_id,type,time,note)"+
+            "values"+
+            "(#{taskid},#{operatorid},#{type},#{time},#{note})"
+    )
+    void insertTaskLog(Tasklog tasklog);
+
+    @Delete("delete from tasklog where id=#{id}")
+    void deleteTaskLog();
 
 
 
