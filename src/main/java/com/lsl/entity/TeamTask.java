@@ -10,7 +10,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Task {
+public class TeamTask {
     private int taskid;
 
     private String taskname;

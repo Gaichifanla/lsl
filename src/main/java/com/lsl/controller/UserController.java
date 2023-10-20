@@ -19,8 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserController {
     @Resource
-    UserMapper userMapper;
-    @Resource
     UserService userService;
     @RequestMapping("/springboot")
     public String startSpringBoot() {

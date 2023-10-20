@@ -1,6 +1,5 @@
 package com.lsl.mapper;
 
-import com.lsl.entity.Task;
 import com.lsl.entity.Tasklog;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;

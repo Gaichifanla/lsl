@@ -1,7 +1,7 @@
 package com.lsl.mapper;
 
 import com.lsl.entity.Project;
-import com.lsl.entity.Task;
+import com.lsl.entity.TeamTask;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -22,10 +22,10 @@ public interface ProjectMapper {
 
     //时间顺序
     @Select("select * from project order by creat_time desc ")
-    Task getProjectByOrderCreatTime();
+    TeamTask getProjectByOrderCreatTime();
     //时间倒序
     @Select("select * from project order by creat_time desc ")
-    Task getProjectByReverseOrderCreatTime();
+    TeamTask getProjectByReverseOrderCreatTime();
 
     @Insert("insert into project(project_name,description,team_id,creator_id,creat_time,end_time)"+
             "values"+
