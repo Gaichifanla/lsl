@@ -1,5 +1,6 @@
 package com.lsl.controller;
 
+import com.lsl.entity.PersonalTasks;
 import com.lsl.result.Result;
 import com.lsl.service.PersonalTasksService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,5 +21,10 @@ public class PersonalTasksController {
     public Result getAllTasksByUserId(int userId){
         log.info("查询id为"+userId+"的任务列表");
         return Result.success(personalTasksService.getAllTasksByUserId(userId));
+    }
+    @GetMapping()
+    public Result insertPersonalTask(PersonalTasks personalTasks){
+        personalTasksService.insertPersonalTask(personalTasks);
+        return Result.success(personalTasks);
     }
 }
