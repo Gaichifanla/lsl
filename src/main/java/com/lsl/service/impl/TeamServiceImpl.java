@@ -19,16 +19,16 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public Team getOneTeamById(int teamid) {
-        return null;
+        return teamMapper.getOneTeamById(teamid);
     }
 
     @Override
     public Team getOneByTeamname(String teamname) {
-        return null;
+        return teamMapper.getOneByTeamname(teamname);
     }
 
     @Override
     public void addTeam(Team team) {
-
+        teamMapper.addTeam(team);
     }
 }

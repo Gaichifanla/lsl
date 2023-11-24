@@ -16,7 +16,7 @@ public interface TeamMapper {
     @Insert("insert into team (team_id,team_name,creator_id,cteat_time)" +
             "values "+"(#{teamId},#{teamName},#{creatorId},current_timestamp)")
     void addTeam(Team team);
-    @Update("update team set team_id=#{teamId},team_name=#{teamName},creator_id=#{creatorId}")
+    @Update("update team set team_name=#{teamName},creator_id=#{creatorId} where team_id=#{teamId}")
     void updata(Team team);
     @Delete("delete from team where team_id=#{teamid}")
     void deleteTeam(int teamid);
