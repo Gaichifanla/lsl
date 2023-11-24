@@ -12,8 +12,9 @@
             <result property="priority" column="priority" jdbcType="INTEGER"/>
             <result property="projectId" column="project_id" jdbcType="INTEGER"/>
             <result property="leaderId" column="leader_id" jdbcType="INTEGER"/>
-            <result property="createrId" column="creater_id" jdbcType="INTEGER"/>
+            <result property="creatorId" column="creator_id" jdbcType="INTEGER"/>
             <result property="creatTime" column="creat_time" jdbcType="TIMESTAMP"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
             <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 

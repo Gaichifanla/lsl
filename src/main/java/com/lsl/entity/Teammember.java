@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Teammember {
     private int id;
-    private String teamname;
-    private int creatorid;
-
+    private int userId;
+    private int teamId;
     //权限
     private String permission;
 

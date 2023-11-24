@@ -13,9 +13,9 @@ import java.util.Date;
 @AllArgsConstructor
 public class Team {
 
-    private int teamid;
-    private String teamname;
+    private int teamId;
+    private String teamName;
 
-    private int creatorid;
-    private Date creattime;
+    private int creatorId;
+    private Date creatTime;
 }

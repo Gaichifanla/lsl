@@ -12,31 +12,31 @@ public interface TaskMapper {
     List<TeamTask> getAll();
 
     @Select("select * from team_task where task_name=#{taskname})")
-    TeamTask getTaskByTaskName(String taskname);
+    List<TeamTask> getTaskByTaskName(String taskname);
 
     @Select("select * from team_task where project_id=#{projectid}")
-    TeamTask getTaskByProjectId(int projectid);
+    List<TeamTask> getTaskByProjectId(int projectid);
 
     @Select("select * from team_task where leader_id=#{leaderid}")
-    TeamTask getTaskByLeaderId();
+    List<TeamTask> getTaskByLeaderId();
 
     @Select("select * from team_task where creator_id=#{creatorid}")
-    TeamTask getTaskByCreatorId();
+    List<TeamTask> getTaskByCreatorId();
     //时间顺序
     @Select("select * from team_task order by creat_time desc ")
-    TeamTask getTaskByOrderCreatTime();
+    List<TeamTask> getTaskByOrderCreatTime();
     //时间倒序
     @Select("select * from team_task order by creat_time desc ")
-    TeamTask getTaskByReverseOrderCreatTime();
+    List<TeamTask> getTaskByReverseOrderCreatTime();
 
-    @Insert("insert into team_task (task_name,description,state,priority,project_id,leader_id,creater_id,creat_time,end_time)" +
+    @Insert("insert into team_task (task_name,description,state,priority,project_id,leader_id,creater_id,start_time,end_time,create_time)" +
             "values"+
-            "(#{taskname},#{description},#{state},#{priority},#{projectid},#{leaderid},#{creatorid},current_timestamp,#{endtime})")
+            "(#{taskName},#{description},#{state},#{priority},#{projectId},#{leaderId},#{creatorId},#{startTime},#{endtime},current_timestamp)")
     void insertTask(TeamTask teamTask);
 
     @Update("update team_task set task_name=#{taskname},description=#{description},state=#{state},priority=#{priority} where task_id=#{taskid}}")
     void updateTask(TeamTask teamTask);
     @Delete("delete from team_task where task_id=#{taskid}")
-    void deleteTask(int taskid);
+    void deleteTask(int taskId);
 
 }

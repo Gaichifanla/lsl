@@ -11,9 +11,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeamTask {
-    private int taskid;
+    private int taskId;
 
-    private String taskname;
+    private String taskName;
 
     private String description;
 
@@ -21,9 +21,10 @@ public class TeamTask {
 
     //优先级
     private String priority;
-    private int projectid;
-    private int leaderid;
-    private  int creatorid;
-    private Date creattime;
-    private  Date endtime;
+    private int projectId;
+    private int leaderId;
+    private  int creatorId;
+    private String startTime;
+    private String creatTime;
+    private  String endTime;
 }
