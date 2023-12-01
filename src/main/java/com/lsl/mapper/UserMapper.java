@@ -36,6 +36,8 @@ public interface UserMapper {
     void addUser(User user);
     @Update("update user set username=#{username},password=#{password},sex=#{sex},avatar=#{avatar},email=#{email},phone=#{phone} where openid=#{openid}")
     void updateUser(User user);
+    @Update("update user set username=#{username},avatar=#{avatar} where openid=#{openid}")
+    void updateAvatarAndUsername(String avatar,String username,String openid);
     @Delete("delete from user where openid=#{openid}")
     void deleteUserById(Long openid);
 

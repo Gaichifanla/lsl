@@ -24,4 +24,11 @@ public class TeammemberController {
         return Result.success(teammemberService.getTeamMemberTeamId(teamId));
     }
 
+    @GetMapping("/getTeamMemberUserId")
+    public Result getTeamMemberUserId(int userId){
+        log.info("调用getTeamMemberUserId方法");
+        return Result.success(teammemberService.getTeamMemberByUserId(userId));
+    }
+
+
 }

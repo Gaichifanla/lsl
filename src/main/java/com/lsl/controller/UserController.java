@@ -37,6 +37,16 @@ public class UserController {
         User user=userService.getOneByName(username);
         return Result.success(user);
     }
+    @GetMapping("/getOneNameByAccount")
+    public Result getOneNameByAccount(int account){
+        log.info("调用getOneNameByAccount函数");
+        return Result.success(userService.getOneByAccount(account).getUsername());
+    }
+    @GetMapping("/getOneByAccount")
+    public Result getOneByAccount(int account){
+        log.info("调用getOneByAccount函数");
+        return Result.success(userService.getOneByAccount(account));
+    }
     @PostMapping("/getOneByOpenid")
     public Result getOneByOpenid(@RequestBody HashMap<String,String> requestBody){
         log.info("调用getOneByOpenid函数");

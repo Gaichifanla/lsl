@@ -31,7 +31,7 @@ public interface TaskMapper {
 
     @Insert("insert into team_task (task_name,description,state,priority,project_id,leader_id,creater_id,start_time,end_time,create_time)" +
             "values"+
-            "(#{taskName},#{description},#{state},#{priority},#{projectId},#{leaderId},#{creatorId},#{startTime},#{endtime},current_timestamp)")
+            "(#{taskName},#{description},#{state},#{priority},#{projectId},#{leaderId},#{creatorId},#{startTime},#{endTime},current_timestamp)")
     void insertTask(TeamTask teamTask);
 
     @Update("update team_task set task_name=#{taskname},description=#{description},state=#{state},priority=#{priority} where task_id=#{taskid}}")

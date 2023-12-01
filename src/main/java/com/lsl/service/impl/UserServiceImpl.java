@@ -71,8 +71,11 @@ public class UserServiceImpl implements UserService {
         //注册/登录用户
         User user1=userMapper.getOneByOpenid(openid);
         if (user1!=null){
-            jsonObject.put("nickName",user1.getUsername());
-            jsonObject.put("avatarUrl",user1.getAvatar());
+            //登录的时候用户可能换了头像和昵称，把头像昵称重新扔进去一遍
+            userMapper.updateAvatarAndUsername(avatarUrl,nickName,openid);
+
+            jsonObject.put("nickName",nickName);
+            jsonObject.put("avatarUrl",avatarUrl);
         }else {
             User user=User.builder()
                     .username(nickName)

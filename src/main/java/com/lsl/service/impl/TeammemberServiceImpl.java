@@ -13,8 +13,19 @@ public class TeammemberServiceImpl implements TeammemberService {
     @Resource
     private TeammemberMapper teammemberMapper;
 
+
+    @Override
+    public Teammember getTeamMemberByUserId(int userId) {
+        return teammemberMapper.getTeamMemberByUserId(userId);
+    }
+
     public List<Teammember> getTeamMemberTeamId(int teamId){
         return teammemberMapper.getAllTeamMemberByTeamId(teamId);
+    }
+
+    @Override
+    public void insertTeamMember(Teammember teammember) {
+        teammemberMapper.insertTeamMember(teammember);
     }
 
 }
