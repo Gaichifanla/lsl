@@ -1,12 +1,13 @@
 package com.lsl.controller;
 
+import com.lsl.annotation.TaskLog;
 import com.lsl.entity.PersonalTasks;
 import com.lsl.result.Result;
 import com.lsl.service.PersonalTasksService;
+import com.lsl.vo.PTStateVo;
+import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.text.ParseException;
@@ -25,6 +26,12 @@ public class PersonalTasksController {
         return Result.success(personalTasksService.getAllTasksByUserId(userId));
     }
 
+    /**
+     * 接收单个PersonalTasks数据
+     * @param personalTasks
+     * @return
+     */
+    @TaskLog(type="personal_tasks",value="添加任务")
     @GetMapping("/insertPersonalTask")
     public Result insertPersonalTask(PersonalTasks personalTasks){
         log.info("调用insertPersonalTask函数");
@@ -32,4 +39,18 @@ public class PersonalTasksController {
         personalTasksService.insertPersonalTask(personalTasks);
         return Result.success(personalTasks);
     }
+
+    /**
+     * 按id更新状态
+     * @param ptStateVo
+     * @return
+     */
+    @TaskLog(type="personal_tasks",value = "更改任务")
+    @PutMapping("/updatePersonalTasksState")
+    public Result updatePersonalTasksState(@RequestBody PTStateVo ptStateVo){
+        log.info("更新"+ptStateVo.getId()+"的state为:"+ptStateVo.getState());
+        personalTasksService.updatePersonalTasksState(ptStateVo.getId(), ptStateVo.getState());
+        return Result.success("更新成功");
+    }
+
 }

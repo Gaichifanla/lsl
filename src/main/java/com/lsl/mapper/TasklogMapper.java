@@ -22,9 +22,9 @@ public interface TasklogMapper {
     @Select("select * from tasklog where operator_id=#{operatorid}")
     Tasklog getTaskByOperatorId(int operatorid);
 
-    @Insert("insert into tasklog (task_id,operator_id,type,time,note)"+
+    @Insert("insert into tasklog (operator_id,task_id,type,time,note)"+
             "values"+
-            "(#{taskid},#{operatorid},#{type},#{time},#{note})"
+            "(#{operatorid},#{taskid},#{type},current_timestamp,#{note})"
     )
     void insertTaskLog(Tasklog tasklog);
 

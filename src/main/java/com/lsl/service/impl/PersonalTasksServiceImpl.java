@@ -28,6 +28,11 @@ public class PersonalTasksServiceImpl implements PersonalTasksService {
     }
 
     @Override
+    public void updatePersonalTasksState(Integer id, Integer state) {
+        personalTasksMapper.updatePersonalTasksState(id,state);
+    }
+
+    @Override
     public void deletePersonalTaskById(int id) {
         personalTasksMapper.deletePersonalTaskById(id);
     }

@@ -14,6 +14,7 @@ public class Tasklog {
     private int id;
     private int taskid;
     private int operatorid;
+    //表名
     private String type;
     private Date time;
     private String note;

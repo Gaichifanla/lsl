@@ -11,6 +11,8 @@ public interface PersonalTasksService {
 
     void updatePersonalTasksContent(String content);
 
+    void updatePersonalTasksState(Integer id,Integer state);
+
     void deletePersonalTaskById(int id);
 
 }

@@ -21,8 +21,11 @@ public interface PersonalTasksMapper {
             "(#{userId},#{content},#{state},#{startTime},#{endTime},current_timestamp)")
     void insertPersonalTask(PersonalTasks personalTasks);
 
-    @Update("update personal_tasks set content=#{content}")
+    @Update("update personal_tasks set content=#{content} where id=#{id}")
     void updatePersonalTasksContent(String content);
+
+    @Update("update personal_tasks set state=#{state} where id=#{id}")
+    void updatePersonalTasksState(Integer id,Integer state);
 
     @Delete("delete from personal_tasks where id=#{id}")
     void deletePersonalTaskById(int id);
