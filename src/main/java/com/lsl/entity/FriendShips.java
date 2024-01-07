@@ -5,15 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Team {
-    private int teamId;
-    private String teamName;
-    private int creatorId;
-    private Date creatTime;
+public class FriendShips {
+    private Long friendshipId;
+    private Long userAId;
+    private Long userBId;
+    private Integer status;
+    private String createdAt;
 }

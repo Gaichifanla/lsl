@@ -16,11 +16,12 @@ public class JwtTokenUtils {
     private String secretKey;
 
     public String createJWT(String openid, String subject, long ttlMillis, Map<String, Object> map) throws Exception {
+        System.out.println(secretKey+"666");
         JwtBuilder builder = Jwts.builder()
                 .setId(openid)//设置唯一编号
                 .setSubject(subject) // 发行者
                 .setIssuedAt(new Date()) // 发行时间
-                .signWith(SignatureAlgorithm.HS256, secretKey) // 设置签名 使用HS256算法 并设置SecretKey(字符串)(密钥)
+                .signWith(SignatureAlgorithm.HS256,secretKey) // 设置签名 使用HS256算法 并设置SecretKey(字符串)(密钥)
                 .compressWith(CompressionCodecs.DEFLATE);// 对载荷进行压缩
         if (!CollectionUtils.isEmpty(map)) {
             builder.setClaims(map);

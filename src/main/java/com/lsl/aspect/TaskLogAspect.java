@@ -29,18 +29,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 
+/**
+ * 待完善，登录注册接受的参数没有userId
+ * 考虑使用返回值带userId
+ */
 @Aspect
 @Component
 public class TaskLogAspect {
-//    @After("@annotation(taskLog)")
-//    public void afterMethod(JoinPoint joinPoint,TaskLog taskLog){
-//        ExpressionParser expressionParser = new SpelExpressionParser();
-//        Expression expression=expressionParser.parseExpression(taskLog.spel());
-//        String value = taskLog.value();
-//        System.out.println(value);
-//        System.out.println(Arrays.toString(joinPoint.getArgs()));
-//
-//    }
     @Resource
     private TasklogService tasklogService;
     @Around("@annotation(taskLog)")

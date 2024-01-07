@@ -1,19 +1,24 @@
-package com.lsl.entity;
+package com.lsl.vo;
 
+import com.lsl.entity.Teammember;
+import com.lsl.mapper.TeamMapper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Team {
+public class TeamAndMemberVo {
     private int teamId;
     private String teamName;
     private int creatorId;
     private Date creatTime;
+    private List<TeamMemberVo> teamMemberVoList;
+
 }
