@@ -31,7 +31,7 @@ public class PersonalTasksController {
      * @param personalTasks
      * @return
      */
-    @TaskLog(type="personal_tasks",value="添加任务")
+//    @TaskLog(type="personal_tasks",value="添加任务")
     @GetMapping("/insertPersonalTask")
     public Result insertPersonalTask(PersonalTasks personalTasks){
         log.info("调用insertPersonalTask函数");
