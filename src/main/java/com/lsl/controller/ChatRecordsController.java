@@ -19,10 +19,12 @@ public class ChatRecordsController {
     private ChatRecordsService chatRecordsService;
     @GetMapping("/getChatRecordsBySARId")
     Result getChatRecordsBySARId(Integer senderId, Integer receiverId){
+        log.info("调用getChatRecordsBySARId函数");
         return Result.success(chatRecordsService.getChatRecordsBySARId(senderId,receiverId));
     }
     @GetMapping("/insertChatRecords")
     void insertChatRecords(ChatRecords chatRecords){
+        log.info("调用insertChatRecords函数");
         chatRecordsService.insertChatRecords(chatRecords);
     }
 }
