@@ -1,11 +1,14 @@
-package com.lsl.controller;
+package com.lsl.controller.user;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lsl.annotation.TaskLog;
 import com.lsl.entity.User;
 import com.lsl.mapper.UserMapper;
+import com.lsl.properties.JwtProperties;
 import com.lsl.result.Result;
 import com.lsl.service.UserService;
+import com.lsl.utils.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,10 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
     @Resource
     UserService userService;
-    @RequestMapping("/springboot")
-    public String startSpringBoot() {
-        return "Welcome to the world of Spring Boot!";
-    }
+
     @GetMapping
     public Result getAllUser(){
         List<User> user=userService.getAllUser();
@@ -62,7 +62,7 @@ public class UserController {
         String code=requestBody.get("code");
         String avatarUrl=requestBody.get("avatarUrl");
         String nickName=requestBody.get("nickName");
-//        System.out.println(code);
+
 
         return userService.regist(code,avatarUrl,nickName);
     }

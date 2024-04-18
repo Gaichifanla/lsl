@@ -1,4 +1,4 @@
-package com.lsl.controller;
+package com.lsl.controller.user;
 
 import com.lsl.annotation.TaskLog;
 import com.lsl.entity.PersonalTasks;

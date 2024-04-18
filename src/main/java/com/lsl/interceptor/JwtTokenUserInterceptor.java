@@ -1,6 +1,10 @@
 package com.lsl.interceptor;
 
-import com.lsl.utils.JwtTokenUtils;
+
+import com.lsl.constant.JwtClaimsConstant;
+import com.lsl.context.BaseContext;
+import com.lsl.properties.JwtProperties;
+import com.lsl.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,10 +14,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import java.util.Enumeration;
+
+
+/**
+ * jwt令牌校验的拦截器
+ */
 @Component
 @Slf4j
-public class JwtTokenInterceptor implements HandlerInterceptor {
+public class JwtTokenUserInterceptor implements HandlerInterceptor {
 
+    @Autowired
+    private JwtProperties jwtProperties;
 
     /**
      * 校验jwt
@@ -24,7 +36,9 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
      * @return
      * @throws Exception
      */
+    @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        System.out.println("当前请求:"+request);
         //判断当前拦截到的是Controller的方法还是其他资源
         if (!(handler instanceof HandlerMethod)) {
             //当前拦截到的不是动态方法，直接放行
@@ -32,14 +46,16 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
         }
 
         //1、从请求头中获取令牌
-        String token = request.getHeader("token");
+        String token = request.getHeader(jwtProperties.getUserTokenName());
+
 
         //2、校验令牌
         try {
             log.info("jwt校验:{}", token);
-            Claims claims = new JwtTokenUtils().parseJWT(token);
-            String user = claims.get("name").toString();
-            log.info("当前员工：", user);
+            Claims claims = JwtUtil.parseJWT(jwtProperties.getUserSecretKey(), token);
+            Long userId = Long.valueOf(claims.get(JwtClaimsConstant.USER_ID).toString());
+            log.info("当前用户id:{}", userId);
+            BaseContext.setCurrentId(userId);
             //3、通过，放行
             return true;
         } catch (Exception ex) {

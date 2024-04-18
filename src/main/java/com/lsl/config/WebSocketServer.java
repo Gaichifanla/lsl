@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-@ServerEndpoint("/websocket/{userId}")//将该类标记为WebSocket服务器端的端点
 @Component
+@ServerEndpoint("/websocket/{userId}")//将该类标记为WebSocket服务器端的端点
 public class WebSocketServer {
     static Log log= LogFactory.get(WebSocketServer.class);
 

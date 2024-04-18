@@ -13,5 +13,6 @@ import java.util.List;
 public interface ChatRecordsService{
     List<ChatRecords> getChatRecordsBySARId(Integer senderId, Integer receiverId);
     void insertChatRecords(ChatRecords chatRecords);
+    List<ChatRecords> getChatRecordsBySenderId(Integer senderId);
 
 }

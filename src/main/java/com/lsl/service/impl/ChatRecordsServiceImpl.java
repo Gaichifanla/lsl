@@ -28,4 +28,9 @@ public class ChatRecordsServiceImpl implements ChatRecordsService {
     public void insertChatRecords(ChatRecords chatRecords) {
         chatRecordsMapper.insertChatRecords(chatRecords);
     }
+
+    @Override
+    public List<ChatRecords> getChatRecordsBySenderId(Integer senderId) {
+        return chatRecordsMapper.getChatRecordsBySenderId(senderId);
+    }
 }

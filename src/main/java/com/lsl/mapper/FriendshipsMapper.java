@@ -1,6 +1,9 @@
 package com.lsl.mapper;
 
+import com.lsl.entity.FriendShips;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
 * @author acer
@@ -10,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
 */
 @Mapper
 public interface FriendshipsMapper{
-
+    public List<FriendShips> query(FriendShips friendShips);
 
 }

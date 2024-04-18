@@ -1,6 +1,6 @@
 package com.lsl.controller;
 
-import com.lsl.entity.User;
+import com.lsl.controller.user.UserController;
 import com.lsl.result.Result;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

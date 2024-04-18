@@ -1,4 +1,4 @@
-package com.lsl.controller;
+package com.lsl.controller.user;
 
 import com.lsl.entity.TeamTask;
 import com.lsl.result.Result;

@@ -2,6 +2,7 @@ package com.lsl.mapper;
 
 
 import com.lsl.entity.ChatRecords;
+import com.lsl.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -22,4 +23,6 @@ public interface ChatRecordsMapper{
     @Insert("insert into chat_records (timestamp,sender_id,receiver_id,message) values (current_time,#{senderId},#{receiverId},#{message}) ")
     void insertChatRecords(ChatRecords chatRecords);
 
+    @Select("select * from chat_records where sender_id=#{senderId}")
+    List<ChatRecords> getChatRecordsBySenderId(Integer senderId);
 }

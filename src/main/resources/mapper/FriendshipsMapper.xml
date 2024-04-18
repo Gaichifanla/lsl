@@ -16,4 +16,18 @@
         friendship_id,user_a_id,user_b_id,
         status,created_at
     </sql>
+    <select id="query" resultType="com.lsl.entity.FriendShips">
+        select * from friendships a
+        <include refid="Base_Column_List"></include>
+        <where>
+            <if test="friendshipId != null and friendshipId != ''"> and a.friendship_id = #{friendshipId} </if>
+            <if test="userAId != null and userAId != ''"> and a.user_a_id = #{userAId} </if>
+            <if test="userBId != null and userBId != ''"> and a.user_b_id = #{userBId} </if>
+            <if test="status != null and status != ''"> and a.status = #{status} </if>
+            <if test="createdAt != null and createdAt != ''"> and a.created_at = #{createdAt} </if>
+        </where>
+        order by a.createdAt desc
+
+    </select>
+
 </mapper>
