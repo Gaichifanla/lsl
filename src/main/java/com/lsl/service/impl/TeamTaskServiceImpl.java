@@ -1,25 +1,22 @@
 package com.lsl.service.impl;
 
 import com.lsl.entity.TeamTask;
-import com.lsl.mapper.TaskMapper;
-import com.lsl.service.TaskService;
+import com.lsl.mapper.TeamTaskMapper;
+import com.lsl.result.Result;
+import com.lsl.service.TeamTaskService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 @Service
-public class TaskServiceImpl implements TaskService {
+public class TeamTaskServiceImpl implements TeamTaskService {
     @Resource
-    private TaskMapper taskMapper;
+    private TeamTaskMapper taskMapper;
     @Override
     public List<TeamTask> getAllTask() {
         return taskMapper.getAll();
     }
 
-    @Override
-    public List<TeamTask> getTaskByCreatorId() {
-        return taskMapper.getTaskByCreatorId();
-    }
 
     @Override
     public void createTask(TeamTask teamTask) {
@@ -34,5 +31,15 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void deleteTask(int taskId) {
         taskMapper.deleteTask(taskId);
+    }
+
+    /**
+     * 动态sql查询所有符合条件的任务
+     *
+     * @return
+     */
+    @Override
+    public Result listAll() {
+        return taskMapper.listAll();
     }
 }

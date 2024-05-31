@@ -1,30 +1,74 @@
 package com.lsl.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import java.io.Serializable;
 import java.util.Date;
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class TeamTask {
-    private int taskId;
+import lombok.Data;
 
+/**
+ * 
+ * @TableName team_task
+ */
+@Data
+public class TeamTask implements Serializable {
+    /**
+     * 
+     */
+    private Integer taskId;
+
+    /**
+     * 任务名称
+     */
     private String taskName;
 
+    /**
+     * 任务描述
+     */
     private String description;
 
-    private String state;
+    /**
+     * 任务状态
+     */
+    private Integer state;
 
-    //优先级
-    private String priority;
-    private int projectId;
-    private int leaderId;
-    private  int creatorId;
-    private String startTime;
-    private String creatTime;
-    private  String endTime;
+    /**
+     * 任务权重
+     */
+    private Integer priority;
+
+    /**
+     * 项目id
+     */
+    private Integer projectId;
+
+    /**
+     * 项目leader的id
+     */
+    private Integer leaderId;
+
+    /**
+     * 创建者id
+     */
+    private Integer userId;
+
+    /**
+     * 
+     */
+    private Date startTime;
+
+    /**
+     * 
+     */
+    private Date endTime;
+
+    /**
+     * 
+     */
+    private Date createTime;
+
+    /**
+     * 任务类型
+     */
+    private Integer taskType;
+
+    private static final long serialVersionUID = 1L;
 }

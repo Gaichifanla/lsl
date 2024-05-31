@@ -27,7 +27,6 @@
             <if test="createdAt != null and createdAt != ''"> and a.created_at = #{createdAt} </if>
         </where>
         order by a.createdAt desc
-
     </select>
 
 </mapper>

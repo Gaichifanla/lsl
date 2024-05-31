@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsl.mapper.TeamTaskMapper">
+
+    <resultMap id="BaseResultMap" type="com.lsl.entity.TeamTask">
+            <id property="taskId" column="task_id" jdbcType="INTEGER"/>
+            <result property="taskName" column="task_name" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="state" column="state" jdbcType="INTEGER"/>
+            <result property="priority" column="priority" jdbcType="INTEGER"/>
+            <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+            <result property="leaderId" column="leader_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="taskType" column="task_type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        task_id,task_name,description,
+        state,priority,project_id,
+        leader_id,user_id,start_time,
+        end_time,create_time,task_type
+    </sql>
+    <select id="listAll" resultType="com.lsl.result.Result">
+        select
+        <include refid="Base_Column_List"/>
+        from team_task t
+        <where>
+            <if test="state != null and state != ''">and t.state = #{state}</if>
+            <if test="priority != null and priority != ''">and t.priority = #{priority}</if>
+            <if test="projectId != null and projectId != ''">and t.project_id = #{projectId}</if>
+            <if test="userId != null and userId != ''">and t.user_id = #{userId}</if>
+            <if test="startTime != null and startTime != ''">and t.start_time = #{startTime}</if>
+            <if test="endTime != null and endTime != ''">and t.state = #{end_time}</if>
+            <if test="createTime != null and createTime != ''">and t.create_time = #{createTime}</if>
+            <if test="taskType != null and taskType != ''">and t.task_type = #{taskType}</if>
+        </where>
+        order by t.create_time desc
+    </select>
+</mapper>

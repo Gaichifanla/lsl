@@ -1,14 +1,13 @@
 package com.lsl.service;
 
 import com.lsl.entity.TeamTask;
-import org.springframework.scheduling.config.Task;
+import com.lsl.result.Result;
 
 import java.util.List;
 
-public interface TaskService {
+public interface TeamTaskService {
     List<TeamTask> getAllTask();
 
-    List<TeamTask> getTaskByCreatorId();
 
     void createTask(TeamTask teamTask);
 
@@ -16,5 +15,9 @@ public interface TaskService {
 
     void deleteTask(int taskId);
 
-
+    /**
+     * 动态sql查询所有符合条件的任务
+     * @return
+     */
+    Result listAll();
 }
