@@ -34,13 +34,16 @@ public class TeamTaskController {
     /**
      * 查询任务
      * 接受参数userid+其他
+     * 任务状态:0 未开始,1 进行中,2 已完成
+     * 任务类型:0 个人,1 团队
      * @param dto
      * @return
      */
     @GetMapping("/listAll")
     public Result listAll(TeamTaskDto dto){
-
-        return taskService.listAll();
+        log.info("执行listAll方法,{}",dto);
+        System.out.println(taskService.listAll(dto));
+        return taskService.listAll(dto);
 
     }
 }

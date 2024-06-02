@@ -1,7 +1,10 @@
 package com.lsl.entity;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
@@ -51,19 +54,25 @@ public class TeamTask implements Serializable {
     private Integer userId;
 
     /**
-     * 
+     * 注解防止传到前端数据变为数组
      */
-    private Date startTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime startTime;
 
     /**
      * 
      */
-    private Date endTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime endTime;
 
     /**
      * 
      */
-    private Date createTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime createTime;
 
     /**
      * 任务类型

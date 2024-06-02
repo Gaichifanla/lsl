@@ -1,5 +1,6 @@
 package com.lsl.mapper;
 
+import com.lsl.dto.TeamTaskDto;
 import com.lsl.entity.TeamTask;
 import com.lsl.result.Result;
 import org.apache.ibatis.annotations.*;
@@ -23,5 +24,5 @@ public interface TeamTaskMapper {
     @Delete("delete from team_task where task_id=#{taskid}")
     void deleteTask(int taskId);
 
-    Result listAll();
+    List<TeamTask> listAll(TeamTaskDto dto);
 }

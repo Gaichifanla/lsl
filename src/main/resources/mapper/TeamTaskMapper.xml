@@ -25,7 +25,7 @@
         leader_id,user_id,start_time,
         end_time,create_time,task_type
     </sql>
-    <select id="listAll" resultType="com.lsl.result.Result">
+    <select id="listAll" resultType="com.lsl.entity.TeamTask">
         select
         <include refid="Base_Column_List"/>
         from team_task t
@@ -33,11 +33,11 @@
             <if test="state != null and state != ''">and t.state = #{state}</if>
             <if test="priority != null and priority != ''">and t.priority = #{priority}</if>
             <if test="projectId != null and projectId != ''">and t.project_id = #{projectId}</if>
-            <if test="userId != null and userId != ''">and t.user_id = #{userId}</if>
+            <if test="userId != null">and t.user_id = #{userId}</if>
             <if test="startTime != null and startTime != ''">and t.start_time = #{startTime}</if>
             <if test="endTime != null and endTime != ''">and t.state = #{end_time}</if>
             <if test="createTime != null and createTime != ''">and t.create_time = #{createTime}</if>
-            <if test="taskType != null and taskType != ''">and t.task_type = #{taskType}</if>
+            <if test="taskType != null">and t.task_type = #{taskType}</if>
         </where>
         order by t.create_time desc
     </select>

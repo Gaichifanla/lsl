@@ -1,7 +1,11 @@
 package com.lsl.dto;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+@Data
 public class TeamTaskDto {
     /**
      * 任务状态
@@ -24,19 +28,25 @@ public class TeamTaskDto {
     private Integer userId;
 
     /**
-     *
+     *加注解防止传到前段变成数组
      */
-    private Date startTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime startTime;
 
     /**
      *
      */
-    private Date endTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime endTime;
 
     /**
      *
      */
-    private Date createTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
 
     /**
      * 任务类型

@@ -1,5 +1,6 @@
 package com.lsl.service;
 
+import com.lsl.dto.TeamTaskDto;
 import com.lsl.entity.TeamTask;
 import com.lsl.result.Result;
 
@@ -17,7 +18,9 @@ public interface TeamTaskService {
 
     /**
      * 动态sql查询所有符合条件的任务
+     * 任务状态:0 未开始,1 进行中,2 已完成
+     * 任务类型:0 个人,1 团队
      * @return
      */
-    Result listAll();
+    Result listAll(TeamTaskDto dto);
 }
