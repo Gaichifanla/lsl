@@ -6,13 +6,14 @@
 
     <resultMap id="BaseResultMap" type="com.lsl.entity.Teammember">
             <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="teamName" column="team_name" jdbcType="VARCHAR"/>
-            <result property="creatorId" column="creator_id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="teamId" column="team_id" jdbcType="INTEGER"/>
             <result property="permission" column="permission" jdbcType="INTEGER"/>
+            <result property="memberState" column="member_state" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,team_name,creator_id,
-        permission
+        id,user_id,team_id,
+        permission,member_state
     </sql>
 </mapper>

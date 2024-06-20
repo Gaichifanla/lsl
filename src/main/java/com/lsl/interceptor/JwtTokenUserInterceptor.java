@@ -38,15 +38,13 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("当前请求:"+request);
         //判断当前拦截到的是Controller的方法还是其他资源
         if (!(handler instanceof HandlerMethod)) {
             //当前拦截到的不是动态方法，直接放行
             return true;
         }
-
         //1、从请求头中获取令牌
-        String token = request.getHeader(jwtProperties.getUserTokenName());
+        String token = request.getHeader(jwtProperties.getAdminTokenName());
 
 
         //2、校验令牌

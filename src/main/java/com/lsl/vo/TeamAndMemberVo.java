@@ -1,7 +1,5 @@
 package com.lsl.vo;
 
-import com.lsl.entity.Teammember;
-import com.lsl.mapper.TeamMapper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

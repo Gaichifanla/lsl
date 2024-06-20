@@ -3,11 +3,10 @@ package com.lsl.controller.user;
 import com.lsl.dto.TeamTaskDto;
 import com.lsl.entity.TeamTask;
 import com.lsl.result.Result;
+import com.lsl.service.PriorityService;
 import com.lsl.service.TeamTaskService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -15,8 +14,10 @@ import javax.annotation.Resource;
 @RequestMapping("/teamTask")
 @Slf4j
 public class TeamTaskController {
+
     @Resource
     private TeamTaskService taskService;
+
 
     /**
      * 创建任务
@@ -24,8 +25,8 @@ public class TeamTaskController {
      * @param teamTask
      * @return
      */
-    @GetMapping("/createTeamWork")
-    public Result createTeamWork(TeamTask teamTask){
+    @PostMapping("/createTeamWork")
+    public Result createTeamWork(@RequestBody TeamTask teamTask){
         taskService.createTask(teamTask);
         log.info("调用createTeamWork函数创建团队任务");
         return Result.success(teamTask);
@@ -44,6 +45,9 @@ public class TeamTaskController {
         log.info("执行listAll方法,{}",dto);
         System.out.println(taskService.listAll(dto));
         return taskService.listAll(dto);
-
+    }
+    @GetMapping("/choose")
+    public Result choose(){
+        return Result.success(null);
     }
 }

@@ -1,12 +1,16 @@
 package com.lsl.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lsl.dto.TeamTaskDto;
 import com.lsl.entity.TeamTask;
+import com.lsl.entity.Teammember;
+import com.lsl.mapper.TeamTaskMapper;
 import com.lsl.result.Result;
 
 import java.util.List;
 
-public interface TeamTaskService {
+public interface TeamTaskService extends IService<TeamTask> {
     List<TeamTask> getAllTask();
 
 

@@ -1,5 +1,6 @@
 package com.lsl.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lsl.entity.Team;
 import com.lsl.mapper.TeamMapper;
 import com.lsl.service.TeamService;
@@ -9,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class TeamServiceImpl implements TeamService {
+public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements TeamService {
     @Resource
     private TeamMapper teamMapper;
     @Override

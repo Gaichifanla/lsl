@@ -36,8 +36,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         log.info("开始注册自定义拦截器...");
         registry.addInterceptor(jwtTokenUserInterceptor)
-                .addPathPatterns("/user/**")//请求路径以"/user/"开头的请求会经过这个拦截器处理
-                .excludePathPatterns("/user/register");//不应该被拦截器拦截的请求路径
+                .addPathPatterns("/user/**","/teamTask/**")//请求路径以"/user/"开头的请求会经过这个拦截器处理
+                .excludePathPatterns("/user/register","/teamTask/createTeamWork");//不应该被拦截器拦截的请求路径
     }
 
     /**

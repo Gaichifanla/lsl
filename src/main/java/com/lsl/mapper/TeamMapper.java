@@ -1,12 +1,14 @@
 package com.lsl.mapper;
 
 import com.lsl.entity.Team;
+import com.lsl.entity.Teammember;
 import org.apache.ibatis.annotations.*;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
 
 @Mapper
-public interface TeamMapper {
+public interface TeamMapper extends BaseMapper<Team> {
     @Select("select * from team")
     List<Team> getAllTeam();
     @Select("select * from team where team.team_id=#{teamid}")

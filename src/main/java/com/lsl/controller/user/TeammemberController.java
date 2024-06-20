@@ -33,6 +33,7 @@ public class TeammemberController {
     @GetMapping("/getTeamMemberTeamId")
     public Result getTeamMemberTeamId(int teamId){
         log.info("调用getTeamMemberTeamId方法");
+
         return Result.success(teammemberService.getTeamMemberTeamId(teamId));
     }
 
