@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsl.mapper.TaskScoreMapper">
+
+    <resultMap id="BaseResultMap" type="com.lsl.entity.TaskScore">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="taskTypeId" column="task_type_id" jdbcType="INTEGER"/>
+            <result property="score" column="score" jdbcType="INTEGER"/>
+            <result property="scorer" column="scorer" jdbcType="INTEGER"/>
+            <result property="taskId" column="task_id" jdbcType="INTEGER"/>
+            <result property="taskCompleterId" column="task_completer_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,task_type_id,score,
+        scorer,task_id,task_completer_id
+    </sql>
+    <select id="getAverageByType" resultType="java.lang.Double">
+        SELECT AVG(score) AS average_score
+        FROM task_score
+        WHERE task_completer_id = #{taskCompleterId} AND task_type_id = #{taskTypeId}
+    </select>
+</mapper>
